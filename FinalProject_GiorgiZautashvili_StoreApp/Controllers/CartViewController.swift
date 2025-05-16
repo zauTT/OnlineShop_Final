@@ -193,11 +193,11 @@ class CartViewController: UIViewController {
         }
         
         if success {
-//            viewModel.clearCart()
             userBalance -= totalWithFees
             updateSummaryLabels()
-            self.onCartClearedAfterPayment?()
+            
             productsViewModel?.reduceStockAfterPurchase()
+            onCartClearedAfterPayment?()
         }
         
         paymentResultVC.modalPresentationStyle = .pageSheet

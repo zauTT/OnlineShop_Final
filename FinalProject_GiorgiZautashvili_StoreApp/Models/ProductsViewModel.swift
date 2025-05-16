@@ -193,7 +193,7 @@ class ProductsViewModel {
         grouppedProductsByCategory(products)
         onProductsFetched?()
         updateCartSummery()
-        
+        refreshCartSummary()
         onCartClearedAfterPayment?()
     }
     

@@ -30,7 +30,7 @@ class ProductsViewController: UIViewController {
     }
     
     func onCartClearedAfterPayment() {
-        viewModel.clearCartAfterPayment()
+        viewModel.reduceStockAfterPurchase()
         tableView.reloadData()
     }
     
@@ -126,6 +126,10 @@ class ProductsViewController: UIViewController {
         
         tableView.register(ProductsCell.self, forCellReuseIdentifier: ProductsCell.identifier)
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshProducts), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: appLogoImageView.bottomAnchor, constant: 10),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -144,6 +148,11 @@ class ProductsViewController: UIViewController {
             cartView.heightAnchor.constraint(equalToConstant: 80)
         ])
         cartView.addTarget(self, action: #selector(goToCartTapped), for: .touchUpInside)
+    }
+    
+    @objc private func refreshProducts() {
+        viewModel.fetchProducts()
+        tableView.refreshControl?.endRefreshing()
     }
     
     @objc private func goToCartTapped() {
@@ -219,7 +228,6 @@ extension ProductsViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.configure(with: productQuantity.quantity)
         
-        
         cell.onIncrease = { [weak self] in
             self?.viewModel.increaseQuantity(at: indexPath)
             tableView.reloadRows(at: [indexPath], with: .automatic)
@@ -238,7 +246,6 @@ extension ProductsViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.onQuantityChange = { newQuantity in
             productQuantity.quantity = newQuantity
-//            self.viewModel.onProductsFetched?()
         }
         
         return cell

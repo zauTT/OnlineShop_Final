@@ -1,3 +1,11 @@
+//
+//  PaymentResultViewController.swift
+//  FinalProject_GiorgiZautashvili_StoreApp
+//
+//  Created by Giorgi Zautashvili on 04.05.25.
+//
+
+
 import UIKit
 
 class PaymentResultViewController: UIViewController {
@@ -19,11 +27,11 @@ class PaymentResultViewController: UIViewController {
     }
     
     private func setupUI(success: Bool, message: String) {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.layer.cornerRadius = 16
         view.clipsToBounds = true
         
-        iconView.image = success ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "xmark.octagon.fill")
+        iconView.image = success ? UIImage(systemName: "checkmark.circle") : UIImage(systemName: "xmark.circle")
         iconView.tintColor = success ? .systemGreen : .systemRed
         iconView.contentMode = .scaleAspectFit
         iconView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,7 +42,7 @@ class PaymentResultViewController: UIViewController {
         messageLabel.numberOfLines = 0
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        dismissButton.setTitle("Go Back", for: .normal)
+        dismissButton.setTitle("უკან დაბრუნება", for: .normal)
         dismissButton.backgroundColor = .systemBlue
         dismissButton.setTitleColor(.white, for: .normal)
         dismissButton.layer.cornerRadius = 10

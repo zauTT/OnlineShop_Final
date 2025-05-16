@@ -48,16 +48,6 @@
 			path = FinalProject_GiorgiZautashvili_StoreApp;
 			sourceTree = "<group>";
 		};
-		F16245782DBE691400EF2472 /* FinalProject_GiorgiZautashvili_StoreAppTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FinalProject_GiorgiZautashvili_StoreAppTests;
-			sourceTree = "<group>";
-		};
-		F16245822DBE691500EF2472 /* FinalProject_GiorgiZautashvili_StoreAppUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FinalProject_GiorgiZautashvili_StoreAppUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				F16245612DBE691300EF2472 /* FinalProject_GiorgiZautashvili_StoreApp */,
-				F16245782DBE691400EF2472 /* FinalProject_GiorgiZautashvili_StoreAppTests */,
-				F16245822DBE691500EF2472 /* FinalProject_GiorgiZautashvili_StoreAppUITests */,
 				F16245602DBE691300EF2472 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -143,9 +131,6 @@
 			dependencies = (
 				F16245772DBE691400EF2472 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				F16245782DBE691400EF2472 /* FinalProject_GiorgiZautashvili_StoreAppTests */,
-			);
 			name = FinalProject_GiorgiZautashvili_StoreAppTests;
 			packageProductDependencies = (
 			);
@@ -165,9 +150,6 @@
 			);
 			dependencies = (
 				F16245812DBE691500EF2472 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				F16245822DBE691500EF2472 /* FinalProject_GiorgiZautashvili_StoreAppUITests */,
 			);
 			name = FinalProject_GiorgiZautashvili_StoreAppUITests;
 			packageProductDependencies = (
@@ -294,9 +276,8 @@
 				INFOPLIST_FILE = FinalProject_GiorgiZautashvili_StoreApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,9 +303,8 @@
 				INFOPLIST_FILE = FinalProject_GiorgiZautashvili_StoreApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -14,12 +14,21 @@ struct Product: Codable {
     let id: Int
     let title: String
     let description: String
-    let price: Int
+    let category: String
+    let price: Double
     let discountPercentage: Double
     let rating: Double
-    let stock: Int
-    let brand: String
-    let category: String
-    let thumbnail: String
+    var stock: Int
+    let tags: [String]?
+    let brand: String?
+    let sku: String?
+    let weight: Double?
+    let dimensions: Dimensions?
     let images: [String]
+    
+    struct Dimensions: Codable {
+        let width: Double?
+        let height: Double?
+        let depth: Double?
+    }
 }

@@ -12,7 +12,6 @@ class LoginScreenViewController: UIViewController {
     
     private var welcomeTextField = UITextField()
     private var appLogoImageView = UIImageView()
-    private var appNameText = UITextField()
     private var userEmailTextField = UITextField()
     private var userPasswordTextField = UITextField()
     private var loginButton = UIButton()
@@ -72,8 +71,9 @@ class LoginScreenViewController: UIViewController {
     
     private func goToProductsVC() {
         let productsVC = ProductsViewController()
-        productsVC.modalPresentationStyle = .fullScreen
-        present(productsVC, animated: true)
+        let navController = UINavigationController(rootViewController: productsVC)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
     }
     
     /// Mark -  UI configuration
@@ -89,7 +89,7 @@ class LoginScreenViewController: UIViewController {
     }
     
     private func configureWelcomeTextField() {
-        welcomeTextField.textColor = .black
+        welcomeTextField.textColor = .gray
         welcomeTextField.font = .systemFont(ofSize: 20, weight: .medium)
         welcomeTextField.textAlignment = .center
         welcomeTextField.text = "კეთილი იყოს თქვენი მობრძანება"
@@ -97,7 +97,7 @@ class LoginScreenViewController: UIViewController {
     
     private func addAppLogoImageView() {
         
-        if let largeImage = UIImage(named: "CityMallLogo") {
+        if let largeImage = UIImage(named: "AppLogo") {
             let smallImage = largeImage.resized(to: CGSize(width: 150, height: 150))
             appLogoImageView.image = smallImage
         }
@@ -106,7 +106,7 @@ class LoginScreenViewController: UIViewController {
         appLogoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            appLogoImageView.topAnchor.constraint(equalTo: welcomeTextField.bottomAnchor, constant: 55),
+            appLogoImageView.topAnchor.constraint(equalTo: welcomeTextField.bottomAnchor, constant: 60),
             appLogoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
@@ -116,7 +116,7 @@ class LoginScreenViewController: UIViewController {
         userEmailTextField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            userEmailTextField.topAnchor.constraint(equalTo: appLogoImageView.bottomAnchor, constant: 35),
+            userEmailTextField.topAnchor.constraint(equalTo: appLogoImageView.bottomAnchor, constant: 30),
             userEmailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             userEmailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             userEmailTextField.heightAnchor.constraint(equalToConstant: 70)
@@ -124,13 +124,15 @@ class LoginScreenViewController: UIViewController {
     }
     
     private func configureUserEmailTextField() {
-        userEmailTextField.backgroundColor = .white
+        userEmailTextField.backgroundColor = .systemBackground
         userEmailTextField.borderStyle = .roundedRect
-        userEmailTextField.layer.borderColor = UIColor.black.cgColor
+        userEmailTextField.layer.borderColor = UIColor.gray.cgColor
         userEmailTextField.layer.borderWidth = 1
         userEmailTextField.layer.cornerRadius = 10
         userEmailTextField.clipsToBounds = true
         userEmailTextField.placeholder = "ელ-ფოსტა"
+        userEmailTextField.autocapitalizationType = .none
+        userEmailTextField.keyboardType = .emailAddress
     }
     
     private func addUserPasswordTextField() {
@@ -138,7 +140,7 @@ class LoginScreenViewController: UIViewController {
         userPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            userPasswordTextField.topAnchor.constraint(equalTo: userEmailTextField.bottomAnchor, constant: 10),
+            userPasswordTextField.topAnchor.constraint(equalTo: userEmailTextField.bottomAnchor, constant: 5),
             userPasswordTextField.leadingAnchor.constraint(equalTo: userEmailTextField.leadingAnchor),
             userPasswordTextField.trailingAnchor.constraint(equalTo: userEmailTextField.trailingAnchor),
             userPasswordTextField.heightAnchor.constraint(equalTo: userEmailTextField.heightAnchor)
@@ -146,9 +148,9 @@ class LoginScreenViewController: UIViewController {
     }
     
     private func configureUserPasswordTextField() {
-        userPasswordTextField.backgroundColor = .white
+        userPasswordTextField.backgroundColor = .systemBackground
         userPasswordTextField.borderStyle = .roundedRect
-        userPasswordTextField.layer.borderColor = UIColor.black.cgColor
+        userPasswordTextField.layer.borderColor = UIColor.gray.cgColor
         userPasswordTextField.layer.borderWidth = 1
         userPasswordTextField.layer.cornerRadius = 10
         userPasswordTextField.clipsToBounds = true
@@ -161,7 +163,7 @@ class LoginScreenViewController: UIViewController {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            loginButton.topAnchor.constraint(equalTo: userPasswordTextField.bottomAnchor, constant: 20),
+            loginButton.topAnchor.constraint(equalTo: userPasswordTextField.bottomAnchor, constant: 5),
             loginButton.leadingAnchor.constraint(equalTo: userEmailTextField.leadingAnchor),
             loginButton.trailingAnchor.constraint(equalTo: userEmailTextField.trailingAnchor),
             loginButton.heightAnchor.constraint(equalTo: userEmailTextField.heightAnchor)
@@ -210,11 +212,4 @@ extension UIImage {
             self.draw(in: CGRect(origin: .zero, size: size))
         }
     }
-}
-
-
-import SwiftUI
-
-#Preview {
-    LoginScreenViewController()
 }

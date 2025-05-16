@@ -24,7 +24,7 @@ class SplashScreenViewController: UIViewController {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.contentMode = .scaleAspectFit
         
-        if let logo = UIImage(named: "CityMallLogo") {
+        if let logo = UIImage(named: "AppLogo") {
             logoImageView.image = logo
         }
         
@@ -37,7 +37,7 @@ class SplashScreenViewController: UIViewController {
     }
     
     private func checkLoginStatus() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.85) {
             let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
             
             if isLoggedIn {
@@ -50,8 +50,9 @@ class SplashScreenViewController: UIViewController {
     
     private func goToProducts() {
         let productsVC = ProductsViewController()
-        productsVC.modalPresentationStyle = .fullScreen
-        present(productsVC, animated: true)
+        let navController = UINavigationController(rootViewController: productsVC)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
     }
     
     private func goToLogin() {
